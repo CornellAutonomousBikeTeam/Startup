@@ -1,0 +1,9 @@
+<launch>
+    <node 
+        pkg="rosserial_python" 
+        name="arduino" 
+        type="serial_node.py"
+        args="/dev/ttyACM0" 
+    />
+    <node pkg="rosbag" type="record" name="recording" args = "-O /home/pi/ros_ws/src/bike/bagfiles/$(arg time) /bike_state" />
+</launch>

@@ -1,0 +1,13 @@
+<launch>
+    <node 
+        pkg="bike" 
+        name="map" 
+        type="map_node.py" 
+    />
+    <node 
+        pkg="bike" 
+        name="navigation" 
+        type="navigation_node.py" 
+    />
+    <node pkg="rosbag" type="record" name="recording" args = "-O /home/pi/ros_ws/src/bike/bagfiles/recent_run /bike_state" />
+</launch>

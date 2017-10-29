@@ -1,0 +1,27 @@
+<launch>
+    <node 
+        pkg="rosserial_python" 
+        name="arduino" 
+        type="serial_node.py"
+        args="/dev/ttyACM0" 
+    />
+
+    <node
+        pkg="bike"
+        name="nav"
+        type="navigation_node.py"
+    />
+    <node
+        pkg="bike"
+        name="map"
+        type="map_node.py"
+    />
+
+    <node
+        pkg = "teleop_twist_keyboard"
+        name = "keyboard"
+        type = "teleop_twist_keybard.py"
+    />
+
+    <node pkg="rosbag" type="record" name="recording" args = "-O /home/pi/ros_ws/src/bike/bagfiles/recent_run /bike_state /gps /nav_instr /paths"/>
+</launch>

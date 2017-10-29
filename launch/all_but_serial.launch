@@ -1,0 +1,23 @@
+<launch>
+    
+    <node
+        pkg="bike"
+        name="map"
+        type="map_node.py"
+        output="screen"
+    />
+    
+    <node
+        pkg="bike"
+        name="nav"
+        type="navigation_node.py"
+    />
+    <node 
+	pkg="bike"
+	name="kalman"
+	type="kalman_node.py"
+        output="screen"
+    />
+    <node pkg="rosbag" type="record" name="recording" args = "-O /home/pi/ros_ws/src/bike/bagfiles/$(arg time) /bike_state /gps /nav_instr /paths /kalman_pub" />
+</launch>
+

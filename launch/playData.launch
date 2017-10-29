@@ -1,0 +1,8 @@
+<launch>
+    <node 
+        pkg="bike" 
+        name="grah" 
+        type="graph.py" 
+    />
+    <node pkg="rosbag" type="play" name="rosbag" args = " -r /home/pi/ros_ws/src/bike/bagfiles/experiment.bag" />
+</launch>

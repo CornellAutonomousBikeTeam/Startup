@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="rosbag" type="record" name="recording" args = "-O /home/pi/ros_ws/src/bike/bagfiles/$(arg time) /bike_state /gps /nav_instr /paths" />
+</launch>
+
